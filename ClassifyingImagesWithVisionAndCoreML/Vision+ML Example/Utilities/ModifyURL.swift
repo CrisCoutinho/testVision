@@ -18,9 +18,12 @@ class ModifyURL {
             newURL = url + "Gato"
             return newURL
         }
-        else{
+        if first == "Dog"{
             newURL = url + "Cachorro"
             return newURL
+        }
+        else {
+            return "error"
         }
     }
 }

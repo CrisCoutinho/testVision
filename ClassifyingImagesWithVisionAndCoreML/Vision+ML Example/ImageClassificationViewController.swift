@@ -25,13 +25,6 @@ class ImageClassificationViewController: UIViewController {
     
     // MARK: - IBAction
     
-    /*@IBAction func onDescriptionTap() {
-        let vc = DescriptionView(nibName: "DescriptionView", bundle: nil)
-        vc.descriptionText = urlText
-        print(vc.descriptionText)
-        navigationController?.pushViewController(vc, animated: true)
-    }*/
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is DescriptionView {
@@ -106,13 +99,12 @@ class ImageClassificationViewController: UIViewController {
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
-                
-                let testing = topClassifications.first.map { classification in
-                    // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
+                self.urlText.removeAll()
+                let forUrl = topClassifications.first.map { classification in
+                    
                    return String(format: "%@", classification.identifier)
                 }
-                self.urlText.append(testing!)
-                //print(self.urlText)
+                self.urlText.append(forUrl!)
                 
                 self.descriptionButton.isEnabled = true
                 self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
