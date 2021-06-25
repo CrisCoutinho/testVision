@@ -15,7 +15,7 @@ class DescriptionView: UIViewController{
     @IBOutlet weak var webView:WKWebView?
     
     let main = ImageClassificationViewController()
-    
+    let url = ModifyURL()
     var descriptionText = ""
     var newURL:String = ""
     
@@ -23,7 +23,7 @@ class DescriptionView: UIViewController{
     {
         super.viewDidLoad()
         
-        newURL = "https://google.com/search?q=" + descriptionText
+        newURL = url.changeURL(first: descriptionText)
         
         let request = URLRequest(url: URL(string: newURL)!)
         //print(main.urlText)
