@@ -28,7 +28,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YqE-gP-kss"/>
-                                    <barButtonItem enabled="NO" image="doc.plaintext" catalog="system" id="CHY-nt-LeW"/>
+                                    <barButtonItem enabled="NO" image="doc.plaintext" catalog="system" id="CHY-nt-LeW">
+                                        <connections>
+                                            <segue destination="Dqs-qf-HcZ" kind="presentation" id="fNJ-Gk-YUS"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJ5-fY-hgK">
@@ -84,6 +88,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.5" y="138.5"/>
+        </scene>
+        <!--DescriptionScreen-->
+        <scene sceneID="4cW-vZ-TXq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DescriptionScreen" id="Dqs-qf-HcZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QK-7i-9iZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="74"/>
         </scene>
     </scenes>
     <resources>
