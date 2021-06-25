@@ -19,6 +19,29 @@ class ImageClassificationViewController: UIViewController {
     @IBOutlet weak var classificationLabel: UILabel!
     @IBOutlet weak var descriptionButton: UIBarButtonItem!
     
+    // MARK: - Variable
+    
+    var urlText:String = ""
+    
+    // MARK: - IBAction
+    
+    /*@IBAction func onDescriptionTap() {
+        let vc = DescriptionView(nibName: "DescriptionView", bundle: nil)
+        vc.descriptionText = urlText
+        print(vc.descriptionText)
+        navigationController?.pushViewController(vc, animated: true)
+    }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DescriptionView {
+            let vc = segue.destination as? DescriptionView
+            vc?.descriptionText = urlText
+            print(vc?.descriptionText)
+        }
+    }
+    
+    
     // MARK: - Image Classification
     
     /// - Tag: MLModelSetup
@@ -86,8 +109,11 @@ class ImageClassificationViewController: UIViewController {
                 
                 let testing = topClassifications.first.map { classification in
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
-                   return print(String(format: "  %@", classification.identifier))
+                   return String(format: "%@", classification.identifier)
                 }
+                self.urlText.append(testing!)
+                //print(self.urlText)
+                
                 self.descriptionButton.isEnabled = true
                 self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
             }

@@ -30,15 +30,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YqE-gP-kss"/>
                                     <barButtonItem enabled="NO" image="doc.plaintext" catalog="system" id="CHY-nt-LeW">
                                         <connections>
-                                            <segue destination="Dqs-qf-HcZ" kind="presentation" id="fNJ-Gk-YUS"/>
+                                            <action selector="onDescriptionTap" destination="BYZ-38-t0r" id="6WJ-9n-8B7"/>
+                                            <segue destination="Dqs-qf-HcZ" kind="show" id="Ivr-TN-Z4L"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJ5-fY-hgK">
-                                <rect key="frame" x="20" y="774" width="123" height="57"/>
+                                <rect key="frame" x="20" y="774" width="122.5" height="57"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XLf-id-yz4">
-                                    <rect key="frame" x="0.0" y="0.0" width="123" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122" height="57"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Add a photo." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmt-pk-Cvs">
@@ -92,7 +93,9 @@
         <!--DescriptionScreen-->
         <scene sceneID="4cW-vZ-TXq">
             <objects>
-                <viewControllerPlaceholder storyboardName="DescriptionScreen" id="Dqs-qf-HcZ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DescriptionScreen" id="Dqs-qf-HcZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nkS-Wn-frJ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1QK-7i-9iZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="978" y="74"/>
