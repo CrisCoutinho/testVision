@@ -17,6 +17,7 @@ class ImageClassificationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var classificationLabel: UILabel!
+    @IBOutlet weak var descriptionButton: UIBarButtonItem!
     
     // MARK: - Image Classification
     
@@ -82,6 +83,12 @@ class ImageClassificationViewController: UIViewController {
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
+                
+                let testing = topClassifications.first.map { classification in
+                    // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
+                   return print(String(format: "  %@", classification.identifier))
+                }
+                self.descriptionButton.isEnabled = true
                 self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
             }
         }
