@@ -17,6 +17,23 @@ class ImageClassificationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var classificationLabel: UILabel!
+    @IBOutlet weak var descriptionButton: UIBarButtonItem!
+    
+    // MARK: - Variable
+    
+    var urlText:String = ""
+    
+    // MARK: - IBAction
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DescriptionView {
+            let vc = segue.destination as? DescriptionView
+            vc?.descriptionText = urlText
+            print(vc?.descriptionText)
+        }
+    }
+    
     
     // MARK: - Image Classification
     
@@ -82,6 +99,14 @@ class ImageClassificationViewController: UIViewController {
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
+                self.urlText.removeAll()
+                let forUrl = topClassifications.first.map { classification in
+                    
+                   return String(format: "%@", classification.identifier)
+                }
+                self.urlText.append(forUrl!)
+                
+                self.descriptionButton.isEnabled = true
                 self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
             }
         }
